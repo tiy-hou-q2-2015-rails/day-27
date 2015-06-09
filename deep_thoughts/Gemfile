@@ -38,6 +38,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'rails_autolink'
 gem 'mini_magick'
+gem 'rails_admin'
 
 
 group :development, :test do
