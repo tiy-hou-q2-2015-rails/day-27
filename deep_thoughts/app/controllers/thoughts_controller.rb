@@ -2,6 +2,8 @@ class ThoughtsController < ApplicationController
 
   before_action do
     @thoughts = Thought.all
+                       .order("created_at desc")
+                       .page(params[:page])
   end
 
   def dashboard
