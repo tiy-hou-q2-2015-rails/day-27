@@ -1,0 +1,17 @@
+<h1>Deep Thoughts</h1>
+
+<%= simple_form_for @thought do |f| %>
+  <%= f.input :content, as: :text %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+<div class="list-group">
+  <% @thoughts.each do |thought| %>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading"><%= thought.content %></h4>
+      <p class="list-group-item-text">
+        Posted <%= distance_of_time_in_words_to_now thought.created_at %> ago
+      </p>
+    </a>
+  <% end %>
+</div>
