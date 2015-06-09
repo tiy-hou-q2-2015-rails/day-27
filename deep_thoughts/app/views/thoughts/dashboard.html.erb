@@ -9,17 +9,25 @@
 <h3><%= pluralize @thoughts.total_count, "thought" %></h3>
 
 
-<div class="list-group">
+
+
   <% @thoughts.each do |thought| %>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading"><%= thought.id %> | <%= thought.content %></h4>
-      <p class="list-group-item-text">
+    <div class="media">
+
+    <div class="media-left">
+      <%= link_to thought.photo.url(:large) do %>
+        <%= image_tag thought.photo.url(:thumb), class: "media-object img-rounded"  %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= auto_link thought.content %>
+      </h4>
+      <p>
         Posted <%= distance_of_time_in_words_to_now thought.created_at %> ago
       </p>
-
-      <%= image_tag thought.photo if thought.photo.present? %>
-
-    </a>
+    </div>
+  </div>
   <% end %>
-</div>
+
 <%= paginate @thoughts %>
